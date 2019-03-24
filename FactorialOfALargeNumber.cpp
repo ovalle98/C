@@ -5,8 +5,8 @@ using namespace std;
 
 int multiply(int x, int res[], int res_size);
 
-// This function finds factorial of large numbers
-// and prints them
+// Esta función encuentra factorial de grandes números.
+// y los imprime
 void factorial(int n)
 {
     int res[MAX];
@@ -15,7 +15,7 @@ void factorial(int n)
     res[0] = 1;
     int res_size = 1;
 
-    // Apply simple factorial formula n! = 1 * 2 * 3 * 4...*n
+    // Aplicar la fórmula factorial simple n! = 1 * 2 * 3 * 4 ... * n
     for (int x=2; x<=n; x++)
         res_size = multiply(x, res, res_size);
 
@@ -24,30 +24,30 @@ void factorial(int n)
         cout << res[i];
 }
 
-// This function multiplies x with the number
-// represented by res[].
-// res_size is size of res[] or number of digits in the
-// number represented by res[]. This function uses simple
-// school mathematics for multiplication.
-// This function may value of res_size and returns the
-// new value of res_size
+// Esta función multiplica x con el número.
+// representado por res [].
+// res_size es el tamaño de res [] o el número de dígitos en el
+// número representado por res []. Esta función usa simple
+// Matemáticas escolares para la multiplicación.
+// Esta función puede ser valor de res_size y devuelve el
+// nuevo valor de res_size
 int multiply(int x, int res[], int res_size)
 {
     int carry = 0;  // Initialize carry
 
-    // One by one multiply n with individual digits of res[]
+    // Uno por uno multiplica n con dígitos individuales de res []
     for (int i=0; i<res_size; i++)
     {
         int prod = res[i] * x + carry;
 
-        // Store last digit of 'prod' in res[]
+        // Almacenar el último dígito de 'prod' en res []
         res[i] = prod % 10;
 
         // Put rest in carry
         carry  = prod/10;
     }
 
-    // Put carry in res and increase result size
+    // Poner en acarreo y aumentar el tamaño del resultado.
     while (carry)
     {
         res[res_size] = carry%10;
